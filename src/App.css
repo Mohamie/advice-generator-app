@@ -1,0 +1,70 @@
+
+
+.card {
+  position: relative;
+  max-width: 35rem;
+  min-height: 30rem;
+  padding: 2rem;
+  padding-bottom: 6rem;
+  border-radius: 1rem;
+  background-color: var(--card-bg-color);
+}
+
+@media(min-width: 768px){
+  .card{
+    max-width: 55rem;
+    padding: 5rem;
+  }
+}
+
+.card > h1{
+  font-size: var(--small-text-size);
+  color: var(--text-secondary-color);
+  letter-spacing: .5rem;
+}
+
+.card > p{
+  font-size: 2.8rem;
+  min-height: 10rem;
+  color: var(--text-primary-color);
+}
+
+.dice_wrapper{
+  position: absolute;
+  bottom: -10%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  padding: 2rem;
+  background-color: var(--text-secondary-color);
+  border-radius: 50%;
+  cursor: pointer;
+
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+
+@keyframes dice-spin {
+  from {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  to {
+    transform: translateX(-50%) rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .dice_wrapper {
+    animation: dice-spin infinite 5s linear;
+  }
+  .dice_wrapper:hover {
+    filter: drop-shadow(0 0 2em hsl(150, 100%, 66%));
+  }
+}
+
+
+
