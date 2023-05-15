@@ -1,4 +1,4 @@
-import { useEffect, useImperativeHandle, useState } from 'react'
+import { useState } from 'react'
 import './App.css'
 import AdviceCard from './AdviceModule/AdviceCard'
 import AdviceAPI from "./AdviceModule/AdviceAPI"
@@ -10,13 +10,10 @@ function App() {
     description: "It is easy to sit up and take notice, what's difficult is getting up and taking action."
   });
 
-  useEffect(() => {
-    generateNewAdvice();
-  }, [])
 
   const generateNewAdvice = async() => {
     const response = await AdviceAPI.getAdvice();
-    
+
     if(response) setAdvice({id: response.id, description: response.advice})
   }
 
